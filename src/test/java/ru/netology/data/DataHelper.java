@@ -7,15 +7,6 @@ public class DataHelper {
     }
 
     @Value
-    public static class DashboardTestInfo {
-        private int moneyToTransfer;
-        private String FirstCard;
-        private String SecondCard;
-        DashboardTestInfo dashboardTestInfo = new DashboardTestInfo(((int) (Math.random() * 10000)), "5559 0000 0000 0001", "5559 0000 0000 0002");
-    }
-
-
-    @Value
     public static class AuthInfo {
         private String login;
         private String password;
