@@ -17,10 +17,32 @@ public class DashboardPage {
     private SelenideElement sumToTransfer = $("[maxlength='14']");
     private SelenideElement payCard = $("[maxlength='19']");
     private SelenideElement acceptButton = $("[data-test-id='action-transfer']");
+    final int randome = ((int) (Math.random() * 10000));
 
 
     public DashboardPage() {
         heading.shouldBe(visible);
+    }
+
+    public double getBalanceSecondCard() {
+        String[] infoBoforeOperation = secondCardInfo.getText().split(": ");
+        String infoBoforeOperation2[] = infoBoforeOperation[1].split(" р");
+        return Double.parseDouble(infoBoforeOperation2[0]);
+    }
+
+
+    public void transferIntMoney() {
+        firstCardButton.click();
+        sumToTransfer.setValue(Integer.toString(randome));
+        payCard.setValue("5559 0000 0000 0002");
+        acceptButton.click();
+    }
+
+    public void transferDoubleMoney() {
+        firstCardButton.click();
+        sumToTransfer.setValue(Double.toString(randome));
+        payCard.setValue("5559 0000 0000 0002");
+        acceptButton.click();
     }
 }
 
